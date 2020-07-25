@@ -43,8 +43,21 @@ class ViewController: UITableViewController {
 
     @IBAction func onAddToDo(sender: Any) {
         let vc = storyboard?.instantiateViewController(identifier: "TitleInputViewController") as! TitleInputViewController
-        vc.onTitleInput = { [weak self] in self?.addTodoAndUpdate(title: $0) }
+        if let updateItem = sender as? ToDo {
+            vc.updateItem = updateItem
+            vc.onTitleInput = { [weak self] in self?.changeTitleAndUpdate(title: $0, with: updateItem) }
+        } else {
+            vc.onTitleInput = { [weak self] in self?.addTodoAndUpdate(title: $0) }
+        }
+        
         present(vc, animated: true, completion: nil)
+    }
+    
+    func changeTitleAndUpdate(title: String, with item: ToDo) {
+        service.update(title: title, with: item) { [weak self] success in
+            guard success else { return }
+            self?.updateList()
+        }
     }
 
     func addTodoAndUpdate(title: String) {
@@ -91,6 +104,12 @@ extension ViewController {
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let todo = todos[indexPath.row]
+        onAddToDo(sender: todo)
     }
 }
 

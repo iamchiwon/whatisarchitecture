@@ -10,6 +10,7 @@ import UIKit
 
 class TitleInputViewController: UIViewController {
     var onTitleInput: ((String) -> Void)?
+    var updateItem: ToDo?
 
     @IBOutlet var titleTextField: UITextField!
 
@@ -18,6 +19,9 @@ class TitleInputViewController: UIViewController {
 
         view.addGestureRecognizer(UITapGestureRecognizer(target: self,
                                                          action: #selector(onBackgroundTouched)))
+        if let item = updateItem {
+            titleTextField.text = item.title
+        }
     }
 
     @objc func onBackgroundTouched() {
