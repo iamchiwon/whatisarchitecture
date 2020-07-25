@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Gr-zu-y8x">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Twb-uv-fo3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MyToDo-->
         <scene sceneID="beW-jZ-sCs">
             <objects>
                 <tableViewController storyboardIdentifier="ViewController" id="6Gr-zu-y8x" customClass="ViewController" customModule="MyToDo" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,14 +89,74 @@
                             <outlet property="delegate" destination="6Gr-zu-y8x" id="TWw-J8-x2Y"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="MyToDo" id="tR4-Gd-4aB">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="QaV-GT-3lX">
+                            <connections>
+                                <segue destination="wYv-dD-85e" kind="show" id="Ic5-eZ-l5p"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymO-5p-KDw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="594.20289855072474" y="98.4375"/>
+            <point key="canvasLocation" x="2414.4927536231885" y="98.4375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Te5-06-UPH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Twb-uv-fo3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t3p-BR-mIn">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6Gr-zu-y8x" kind="relationship" relationship="rootViewController" id="E6b-5K-rr4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M4S-Au-ygS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1504.3478260869567" y="98.4375"/>
+        </scene>
+        <!--New ToDo-->
+        <scene sceneID="tD5-5M-PkD">
+            <objects>
+                <viewController id="wYv-dD-85e" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZPM-Sx-8b3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input Title To Do" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NpD-Wr-HVJ">
+                                <rect key="frame" x="20" y="108" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cO5-JO-I7T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="NpD-Wr-HVJ" firstAttribute="top" secondItem="5EH-KH-eoY" secondAttribute="top" constant="20" id="Z4r-Bc-lRy"/>
+                            <constraint firstItem="5EH-KH-eoY" firstAttribute="trailing" secondItem="NpD-Wr-HVJ" secondAttribute="trailing" constant="20" id="bpt-Rf-kjJ"/>
+                            <constraint firstItem="NpD-Wr-HVJ" firstAttribute="leading" secondItem="5EH-KH-eoY" secondAttribute="leading" constant="20" id="wOt-1Z-uzf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5EH-KH-eoY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New ToDo" id="DHA-A8-Mko">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="VZM-8N-Q8U"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ga-5n-LjX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3182.608695652174" y="97.767857142857139"/>
         </scene>
     </scenes>
     <resources>
         <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <image name="trash.fill" catalog="system" width="121" height="128"/>
     </resources>
