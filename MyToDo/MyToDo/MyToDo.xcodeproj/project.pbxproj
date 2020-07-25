@@ -17,6 +17,7 @@
 		A1005C0324CBF17C0091740A /* ToDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0224CBF17C0091740A /* ToDoService.swift */; };
 		A1005C0524CBF5620091740A /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0424CBF5620091740A /* ToDo.swift */; };
 		A1005C0724CC05860091740A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0624CC05860091740A /* Repository.swift */; };
+		A1005C0924CC079E0091740A /* MemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0824CC079E0091740A /* MemoryRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		A1005C0224CBF17C0091740A /* ToDoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoService.swift; sourceTree = "<group>"; };
 		A1005C0424CBF5620091740A /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		A1005C0624CC05860091740A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		A1005C0824CC079E0091740A /* MemoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				A1005C0224CBF17C0091740A /* ToDoService.swift */,
 				A1005C0424CBF5620091740A /* ToDo.swift */,
 				A1005C0624CC05860091740A /* Repository.swift */,
+				A1005C0824CC079E0091740A /* MemoryRepository.swift */,
 			);
 			path = ToDoService;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			files = (
 				A1005BE324CBE2FB0091740A /* ViewController.swift in Sources */,
 				A1005C0524CBF5620091740A /* ToDo.swift in Sources */,
+				A1005C0924CC079E0091740A /* MemoryRepository.swift in Sources */,
 				A1005BDF24CBE2FB0091740A /* AppDelegate.swift in Sources */,
 				A1005BE124CBE2FB0091740A /* SceneDelegate.swift in Sources */,
 				A1005C0324CBF17C0091740A /* ToDoService.swift in Sources */,
