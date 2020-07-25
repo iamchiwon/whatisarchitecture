@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // SceneDeledate
 
         } else {
-            let reposity: Repository = MemoryRepository()
+            let reposity: Repository = UserDefaultsRepository()
             let service: ToDoService = ToDoServiceImpl(repository: reposity)
 
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
