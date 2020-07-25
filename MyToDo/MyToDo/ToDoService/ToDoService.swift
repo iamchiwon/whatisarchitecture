@@ -9,6 +9,7 @@
 import Foundation
 
 protocol ToDoService {
+    func create(title: String)
     func list() -> [ToDo]
     func update(title: String, with item: ToDo)
     func toggleCompleted(item: ToDo)
