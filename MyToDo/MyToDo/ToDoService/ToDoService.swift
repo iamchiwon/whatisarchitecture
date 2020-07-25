@@ -15,3 +15,21 @@ protocol ToDoService {
     func toggleCompleted(item: ToDo)
     func delete(item: ToDo)
 }
+
+class ToDoServiceImpl : ToDoService {
+    func create(title: String) {
+    }
+    
+    func list() -> [ToDo] {
+        return []
+    }
+    
+    func update(title: String, with item: ToDo) {
+    }
+    
+    func toggleCompleted(item: ToDo) {
+    }
+    
+    func delete(item: ToDo) {
+    }
+}
