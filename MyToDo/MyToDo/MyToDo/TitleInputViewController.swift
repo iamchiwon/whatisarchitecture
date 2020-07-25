@@ -29,7 +29,7 @@ class TitleInputViewController: UIViewController {
     }
 
     @IBAction func onDone() {
-        guard let text = titleTextField.text,
+        guard let text = titleTextField.text, !text.isEmpty,
             let callback = onTitleInput else {
             onCancel()
             return

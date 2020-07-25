@@ -9,15 +9,20 @@
 import UIKit
 
 class ToDoCell: UITableViewCell {
+    var onToggleCompleted: (() -> Void)?
+    var onDelete: (() -> Void)?
+
     @IBOutlet var completebutton: UIButton!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var deleteButton: UIButton!
 
     @IBAction func onCompleteSelected(sender: UIButton) {
+        onToggleCompleted?()
     }
 
     @IBAction func onDeleteButton(sender: UIButton) {
+        onDelete?()
     }
 }
 
@@ -33,10 +38,7 @@ class ViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        service.list { [weak self] items in
-            self?.todos = items
-            self?.tableView.reloadData()
-        }
+        updateList()
     }
 
     @IBAction func onAddToDo(sender: Any) {
@@ -74,6 +76,19 @@ extension ViewController {
         cell.titleLabel.text = todo.title
         cell.dateLabel.text = todo.dateText()
         cell.completebutton.isSelected = todo.completed
+        cell.onToggleCompleted = { [weak self] in
+            self?.service.toggleCompleted(item: todo,
+                                          completed: { success in
+                                              guard success else { return }
+                                              self?.updateList()
+            })
+        }
+        cell.onDelete = { [weak self] in
+            self?.service.delete(item: todo, completed: { success in
+                guard success else { return }
+                self?.updateList()
+            })
+        }
 
         return cell
     }
