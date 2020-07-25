@@ -27,51 +27,34 @@ class ToDoCell: UITableViewCell {
 }
 
 class ViewController: UITableViewController {
-    var service: ToDoService!
-
-    var todos: [ToDo] = []
+    var viewModel: ViewModel!
 
     override func viewDidLoad() {
-        guard service != nil else { fatalError("service must not be nil") }
+        guard viewModel != nil else { fatalError("viewModel must not be nil") }
         super.viewDidLoad()
     }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateList()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.didLoaded()
     }
 
     @IBAction func onAddToDo(sender: Any) {
         let vc = storyboard?.instantiateViewController(identifier: "TitleInputViewController") as! TitleInputViewController
         if let updateItem = sender as? ToDo {
             vc.updateItem = updateItem
-            vc.onTitleInput = { [weak self] in self?.changeTitleAndUpdate(title: $0, with: updateItem) }
+            vc.onTitleInput = { [weak self] in self?.viewModel.update(title: $0, todo: updateItem) }
         } else {
-            vc.onTitleInput = { [weak self] in self?.addTodoAndUpdate(title: $0) }
+            vc.onTitleInput = { [weak self] in self?.viewModel.create(title: $0) }
         }
-        
+
         present(vc, animated: true, completion: nil)
     }
-    
-    func changeTitleAndUpdate(title: String, with item: ToDo) {
-        service.update(title: title, with: item) { [weak self] success in
-            guard success else { return }
-            self?.updateList()
-        }
-    }
+}
 
-    func addTodoAndUpdate(title: String) {
-        service.create(title: title) { [weak self] success in
-            guard success else { return }
-            self?.updateList()
-        }
-    }
-
-    func updateList() {
-        service.list { [weak self] list in
-            self?.todos = list
-            self?.tableView.reloadData()
-        }
+extension ViewController: ViewModelObserver {
+    func updated() {
+        tableView.reloadData()
     }
 }
 
@@ -79,36 +62,29 @@ class ViewController: UITableViewController {
 
 extension ViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todos.count
+        return viewModel.count()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ToDoCell") as! ToDoCell
 
-        let todo = todos[indexPath.row]
+        let todo = viewModel.todo(at: indexPath.row)
         cell.titleLabel.text = todo.title
         cell.dateLabel.text = todo.dateText()
         cell.completebutton.isSelected = todo.completed
         cell.onToggleCompleted = { [weak self] in
-            self?.service.toggleCompleted(item: todo,
-                                          completed: { success in
-                                              guard success else { return }
-                                              self?.updateList()
-            })
+            self?.viewModel.toggle(todo: todo)
         }
         cell.onDelete = { [weak self] in
-            self?.service.delete(item: todo, completed: { success in
-                guard success else { return }
-                self?.updateList()
-            })
+            self?.viewModel.delete(todo: todo)
         }
 
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let todo = todos[indexPath.row]
+        let todo = viewModel.todo(at: indexPath.row)
         onAddToDo(sender: todo)
     }
 }

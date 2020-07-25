@@ -23,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let navi = storyboard.instantiateInitialViewController() as? UINavigationController
             let viewController = navi?.viewControllers.first as? ViewController
-            viewController?.service = service
+
+            let viewModel: ViewModel = ViewModelImpl(service: service, observer: viewController)
+            viewController?.viewModel = viewModel
 
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.rootViewController = navi
