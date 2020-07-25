@@ -18,6 +18,7 @@
 		A1005C0524CBF5620091740A /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0424CBF5620091740A /* ToDo.swift */; };
 		A1005C0724CC05860091740A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0624CC05860091740A /* Repository.swift */; };
 		A1005C0924CC079E0091740A /* MemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0824CC079E0091740A /* MemoryRepository.swift */; };
+		A1005C0B24CC0BAB0091740A /* AsyncUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0A24CC0BAB0091740A /* AsyncUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		A1005C0424CBF5620091740A /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		A1005C0624CC05860091740A /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		A1005C0824CC079E0091740A /* MemoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryRepository.swift; sourceTree = "<group>"; };
+		A1005C0A24CC0BAB0091740A /* AsyncUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				A1005BF524CBE2FD0091740A /* MyToDoTests.swift */,
+				A1005C0A24CC0BAB0091740A /* AsyncUtil.swift */,
 				A1005BF724CBE2FD0091740A /* Info.plist */,
 			);
 			path = MyToDoTests;
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1005C0B24CC0BAB0091740A /* AsyncUtil.swift in Sources */,
 				A1005BF624CBE2FD0091740A /* MyToDoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
