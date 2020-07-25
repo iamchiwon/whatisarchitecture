@@ -92,7 +92,7 @@
                     <navigationItem key="navigationItem" title="MyToDo" id="tR4-Gd-4aB">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="QaV-GT-3lX">
                             <connections>
-                                <segue destination="wYv-dD-85e" kind="show" id="Ic5-eZ-l5p"/>
+                                <action selector="onAddToDoWithSender:" destination="6Gr-zu-y8x" id="RCW-y5-bfg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -123,31 +123,60 @@
         <!--New ToDo-->
         <scene sceneID="tD5-5M-PkD">
             <objects>
-                <viewController id="wYv-dD-85e" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TitleInputViewController" id="wYv-dD-85e" customClass="TitleInputViewController" customModule="MyToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZPM-Sx-8b3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input Title To Do" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NpD-Wr-HVJ">
-                                <rect key="frame" x="20" y="108" width="374" height="40"/>
+                                <rect key="frame" x="20" y="168" width="374" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="cO5-JO-I7T"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New To Do" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yx-0p-VRJ">
+                                <rect key="frame" x="158" y="84" width="98" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zAc-DV-oXf">
+                                <rect key="frame" x="355" y="128" width="39" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="onDone" destination="wYv-dD-85e" eventType="touchUpInside" id="I7w-A5-q2C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sd5-07-npQ">
+                                <rect key="frame" x="20" y="128" width="50" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="onCancel" destination="wYv-dD-85e" eventType="touchUpInside" id="zik-yp-Knj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="NpD-Wr-HVJ" firstAttribute="top" secondItem="5EH-KH-eoY" secondAttribute="top" constant="20" id="Z4r-Bc-lRy"/>
+                            <constraint firstItem="NpD-Wr-HVJ" firstAttribute="top" secondItem="zAc-DV-oXf" secondAttribute="bottom" constant="8" id="Buw-q4-4jj"/>
+                            <constraint firstItem="NpD-Wr-HVJ" firstAttribute="top" secondItem="8yx-0p-VRJ" secondAttribute="bottom" constant="60" id="CsB-jd-OPa"/>
+                            <constraint firstItem="sd5-07-npQ" firstAttribute="leading" secondItem="NpD-Wr-HVJ" secondAttribute="leading" id="GSL-Np-bmy"/>
+                            <constraint firstItem="NpD-Wr-HVJ" firstAttribute="top" secondItem="sd5-07-npQ" secondAttribute="bottom" constant="8" id="UPc-Q4-aki"/>
                             <constraint firstItem="5EH-KH-eoY" firstAttribute="trailing" secondItem="NpD-Wr-HVJ" secondAttribute="trailing" constant="20" id="bpt-Rf-kjJ"/>
+                            <constraint firstItem="8yx-0p-VRJ" firstAttribute="centerX" secondItem="ZPM-Sx-8b3" secondAttribute="centerX" id="gyI-kc-N1O"/>
+                            <constraint firstItem="8yx-0p-VRJ" firstAttribute="top" secondItem="5EH-KH-eoY" secondAttribute="top" constant="40" id="pIA-hS-LxX"/>
+                            <constraint firstItem="zAc-DV-oXf" firstAttribute="trailing" secondItem="NpD-Wr-HVJ" secondAttribute="trailing" id="tXb-MR-Job"/>
                             <constraint firstItem="NpD-Wr-HVJ" firstAttribute="leading" secondItem="5EH-KH-eoY" secondAttribute="leading" constant="20" id="wOt-1Z-uzf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5EH-KH-eoY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New ToDo" id="DHA-A8-Mko">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="VZM-8N-Q8U"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="New ToDo" id="DHA-A8-Mko"/>
+                    <connections>
+                        <outlet property="titleTextField" destination="NpD-Wr-HVJ" id="To5-7w-4Jl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ga-5n-LjX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
