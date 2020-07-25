@@ -98,4 +98,54 @@ class MyToDoTests: XCTestCase {
 
         waitForExpectations(timeout: 10)
     }
+
+    func test_ToDo_만들고_제목_변경하기() {
+        let repository: Repository = MemoryRepository()
+        let service: ToDoService = ToDoServiceImpl(repository: repository)
+        async { done in
+            service.create(title: "HelloWorld") { success in
+                XCTAssertTrue(success)
+
+                service.list { list in
+                    XCTAssertEqual(list.count, 1)
+
+                    service.update(title: "WorldHello", with: list[0]) { success in
+                        XCTAssertTrue(success)
+
+                        service.list { list2 in
+                            XCTAssertEqual(list2.count, 1)
+                            XCTAssertEqual(list2[0].title, "WorldHello")
+                            XCTAssertNotNil(list2[0])
+
+                            done()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func test_ToDo_만들고_삭제하기() {
+        let repository: Repository = MemoryRepository()
+        let service: ToDoService = ToDoServiceImpl(repository: repository)
+        async { done in
+            service.create(title: "HelloWorld") { success in
+                XCTAssertTrue(success)
+
+                service.list { list in
+                    XCTAssertEqual(list.count, 1)
+
+                    service.delete(item: list[0]) { (success) in
+                        XCTAssertTrue(success)
+                        
+                        service.list { list2 in
+                            XCTAssertEqual(list2.count, 0)
+
+                            done()
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
