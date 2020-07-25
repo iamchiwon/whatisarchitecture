@@ -20,4 +20,4 @@
    - MyToDo 만들기  
      ![screen1](images/screenshot1.png) ![screen1](images/screenshot2.png)
    - 요구사항 > 설계 (책임과 역할) > 구현
-
+   - TDD > MVC > MVVM
