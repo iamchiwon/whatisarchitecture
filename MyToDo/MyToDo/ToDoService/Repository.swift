@@ -9,8 +9,8 @@
 import Foundation
 
 protocol Repository {
-    func create(item: ToDo)
-    func read() -> [ToDo]
-    func update(item: ToDo)
-    func delete(item: ToDo)
+    func create(item: ToDo, completed: @escaping (Bool) -> Void)
+    func read(completed: @escaping ([ToDo]) -> Void)
+    func update(item: ToDo, completed: @escaping (Bool) -> Void)
+    func delete(item: ToDo, completed: @escaping (Bool) -> Void)
 }
