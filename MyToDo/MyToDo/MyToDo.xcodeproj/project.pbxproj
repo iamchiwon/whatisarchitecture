@@ -14,6 +14,7 @@
 		A1005BE824CBE2FD0091740A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1005BE724CBE2FD0091740A /* Assets.xcassets */; };
 		A1005BEB24CBE2FD0091740A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1005BE924CBE2FD0091740A /* LaunchScreen.storyboard */; };
 		A1005BF624CBE2FD0091740A /* MyToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005BF524CBE2FD0091740A /* MyToDoTests.swift */; };
+		A1005C0324CBF17C0091740A /* ToDoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0224CBF17C0091740A /* ToDoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		A1005BF124CBE2FD0091740A /* MyToDoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyToDoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1005BF524CBE2FD0091740A /* MyToDoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyToDoTests.swift; sourceTree = "<group>"; };
 		A1005BF724CBE2FD0091740A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1005C0224CBF17C0091740A /* ToDoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				A1005BDD24CBE2FB0091740A /* MyToDo */,
+				A1005C0124CBF1670091740A /* ToDoService */,
 				A1005BF424CBE2FD0091740A /* MyToDoTests */,
 				A1005BDC24CBE2FB0091740A /* Products */,
 			);
@@ -97,6 +100,14 @@
 				A1005BF724CBE2FD0091740A /* Info.plist */,
 			);
 			path = MyToDoTests;
+			sourceTree = "<group>";
+		};
+		A1005C0124CBF1670091740A /* ToDoService */ = {
+			isa = PBXGroup;
+			children = (
+				A1005C0224CBF17C0091740A /* ToDoService.swift */,
+			);
+			path = ToDoService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 				A1005BE324CBE2FB0091740A /* ViewController.swift in Sources */,
 				A1005BDF24CBE2FB0091740A /* AppDelegate.swift in Sources */,
 				A1005BE124CBE2FB0091740A /* SceneDelegate.swift in Sources */,
+				A1005C0324CBF17C0091740A /* ToDoService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
