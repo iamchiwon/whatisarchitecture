@@ -11,24 +11,46 @@ import XCTest
 
 class MyToDoTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_ToDo를_json으로_만들기() {
+        let createdAt = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let createdAtString = formatter.string(from: createdAt)
+        let str = "{\"id\":100,\"title\":\"title\",\"completed\":false,\"createdAt\":\"\(createdAtString)\"}"
+        
+        let todo = ToDo(id: 100,
+                        title: "title",
+                        completed: false,
+                        createdAt: createdAt,
+                        updatedAt: nil)
+        
+        let jsonEncoder = JSONEncoder()
+        jsonEncoder.dateEncodingStrategy = .formatted(formatter)
+        let data = try! jsonEncoder.encode(todo)
+        let json = String(data: data, encoding: .utf8)!
+        
+        XCTAssertEqual(str, json)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_json으로_ToDo_만들기() {
+        let createdAt = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let createdAtString = formatter.string(from: createdAt)
+        let str = "{\"id\":100,\"title\":\"title\",\"completed\":false,\"createdAt\":\"\(createdAtString)\"}"
+        
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.dateDecodingStrategy = .formatted(formatter)
+        let data = str.data(using: .utf8)!
+        let todo = try! jsonDecoder.decode(ToDo.self, from: data)
+        
+        XCTAssertNotNil(todo)
+        XCTAssertEqual(todo.id, 100)
+        XCTAssertEqual(todo.title, "title")
+        XCTAssertEqual(todo.completed, false)
+        XCTAssertEqual(formatter.string(from: todo.createdAt),
+                       formatter.string(from: createdAt))
+        XCTAssertNil(todo.updatedAt)
     }
 
 }
