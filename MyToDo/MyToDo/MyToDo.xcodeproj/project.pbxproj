@@ -21,6 +21,7 @@
 		A1005C0B24CC0BAB0091740A /* AsyncUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0A24CC0BAB0091740A /* AsyncUtil.swift */; };
 		A1005C0D24CC20E80091740A /* TitleInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0C24CC20E80091740A /* TitleInputViewController.swift */; };
 		A1005C0F24CC761C0091740A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0E24CC761C0091740A /* ViewModel.swift */; };
+		A1005C1124CC878D0091740A /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C1024CC878D0091740A /* UserDefaultsRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		A1005C0A24CC0BAB0091740A /* AsyncUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncUtil.swift; sourceTree = "<group>"; };
 		A1005C0C24CC20E80091740A /* TitleInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInputViewController.swift; sourceTree = "<group>"; };
 		A1005C0E24CC761C0091740A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		A1005C1024CC878D0091740A /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				A1005C0424CBF5620091740A /* ToDo.swift */,
 				A1005C0624CC05860091740A /* Repository.swift */,
 				A1005C0824CC079E0091740A /* MemoryRepository.swift */,
+				A1005C1024CC878D0091740A /* UserDefaultsRepository.swift */,
 			);
 			path = ToDoService;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			files = (
 				A1005BE324CBE2FB0091740A /* ViewController.swift in Sources */,
 				A1005C0F24CC761C0091740A /* ViewModel.swift in Sources */,
+				A1005C1124CC878D0091740A /* UserDefaultsRepository.swift in Sources */,
 				A1005C0524CBF5620091740A /* ToDo.swift in Sources */,
 				A1005C0D24CC20E80091740A /* TitleInputViewController.swift in Sources */,
 				A1005C0924CC079E0091740A /* MemoryRepository.swift in Sources */,
