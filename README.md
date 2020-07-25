@@ -17,6 +17,7 @@
    - 이론적 원칙
    - 모범사례
 5. 연습
-   - MyToDo 만들기
-   - 요구사항 > 설계 > 구현
+   - MyToDo 만들기  
+     ![screen1](images/screenshot1.png) ![screen1](images/screenshot2.png)
+   - 요구사항 > 설계 (책임과 역할) > 구현
 
