@@ -20,6 +20,7 @@
 		A1005C0924CC079E0091740A /* MemoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0824CC079E0091740A /* MemoryRepository.swift */; };
 		A1005C0B24CC0BAB0091740A /* AsyncUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0A24CC0BAB0091740A /* AsyncUtil.swift */; };
 		A1005C0D24CC20E80091740A /* TitleInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0C24CC20E80091740A /* TitleInputViewController.swift */; };
+		A1005C0F24CC761C0091740A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0E24CC761C0091740A /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		A1005C0824CC079E0091740A /* MemoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryRepository.swift; sourceTree = "<group>"; };
 		A1005C0A24CC0BAB0091740A /* AsyncUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncUtil.swift; sourceTree = "<group>"; };
 		A1005C0C24CC20E80091740A /* TitleInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInputViewController.swift; sourceTree = "<group>"; };
+		A1005C0E24CC761C0091740A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				A1005BE024CBE2FB0091740A /* SceneDelegate.swift */,
 				A1005BE224CBE2FB0091740A /* ViewController.swift */,
 				A1005C0C24CC20E80091740A /* TitleInputViewController.swift */,
+				A1005C0E24CC761C0091740A /* ViewModel.swift */,
 				A1005BE424CBE2FB0091740A /* Main.storyboard */,
 				A1005BE724CBE2FD0091740A /* Assets.xcassets */,
 				A1005BE924CBE2FD0091740A /* LaunchScreen.storyboard */,
@@ -227,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1005BE324CBE2FB0091740A /* ViewController.swift in Sources */,
+				A1005C0F24CC761C0091740A /* ViewModel.swift in Sources */,
 				A1005C0524CBF5620091740A /* ToDo.swift in Sources */,
 				A1005C0D24CC20E80091740A /* TitleInputViewController.swift in Sources */,
 				A1005C0924CC079E0091740A /* MemoryRepository.swift in Sources */,
