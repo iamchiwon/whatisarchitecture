@@ -8,42 +8,46 @@
 
 import Foundation
 
-class MemoryRepository : Repository {
+class MemoryRepository: Repository {
     var todos: [Int: ToDo] = [:]
-    
+
     func create(item: ToDo, completed: @escaping (Bool) -> Void) {
-        guard todos[item.id] == nil else {
+        let todo = ToDo(id: todos.count,
+                        title: item.title,
+                        completed: item.completed,
+                        createdAt: item.createdAt,
+                        updatedAt: item.updatedAt)
+        
+        guard todos[todo.id] == nil else {
             completed(false)
             return
         }
-        
-        todos[item.id] = item
+
+        todos[todo.id] = todo
         completed(true)
     }
-    
+
     func read(completed: @escaping ([ToDo]) -> Void) {
         completed(todos.compactMap { $1 })
     }
-    
+
     func update(item: ToDo, completed: @escaping (Bool) -> Void) {
         guard todos[item.id] != nil else {
             completed(false)
             return
         }
-        
+
         todos[item.id] = item
         completed(true)
     }
-    
+
     func delete(item: ToDo, completed: @escaping (Bool) -> Void) {
         guard todos[item.id] != nil else {
             completed(false)
             return
         }
-        
+
         todos.removeValue(forKey: item.id)
         completed(true)
     }
-    
-    
 }

@@ -38,6 +38,26 @@ class ViewController: UITableViewController {
             self?.tableView.reloadData()
         }
     }
+
+    @IBAction func onAddToDo(sender: Any) {
+        let vc = storyboard?.instantiateViewController(identifier: "TitleInputViewController") as! TitleInputViewController
+        vc.onTitleInput = { [weak self] in self?.addTodoAndUpdate(title: $0) }
+        present(vc, animated: true, completion: nil)
+    }
+
+    func addTodoAndUpdate(title: String) {
+        service.create(title: title) { [weak self] success in
+            guard success else { return }
+            self?.updateList()
+        }
+    }
+
+    func updateList() {
+        service.list { [weak self] list in
+            self?.todos = list
+            self?.tableView.reloadData()
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
