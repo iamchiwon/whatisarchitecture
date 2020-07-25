@@ -17,18 +17,23 @@ protocol ToDoService {
 }
 
 class ToDoServiceImpl: ToDoService {
+    var repository: Repository!
+
+    init(repository: Repository) {
+        self.repository = repository
+    }
+
     func create(title: String) {
         let todo = ToDo(id: 0,
                         title: title,
                         completed: false,
                         createdAt: Date(),
                         updatedAt: nil)
-        // create todo
+        repository.create(item: todo)
     }
 
     func list() -> [ToDo] {
-        return []
-        // read todo
+        return repository.read()
     }
 
     func update(title: String, with item: ToDo) {
@@ -37,7 +42,7 @@ class ToDoServiceImpl: ToDoService {
                         completed: item.completed,
                         createdAt: item.createdAt,
                         updatedAt: Date())
-        // update todo
+        repository.update(item: todo)
     }
 
     func toggleCompleted(item: ToDo) {
@@ -46,10 +51,10 @@ class ToDoServiceImpl: ToDoService {
                         completed: !item.completed,
                         createdAt: item.createdAt,
                         updatedAt: Date())
-        // update todo
+        repository.update(item: todo)
     }
 
     func delete(item: ToDo) {
-        // delete todo
+        repository.delete(item: item)
     }
 }
