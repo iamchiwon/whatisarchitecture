@@ -8,16 +8,9 @@
 
 import Foundation
 
-protocol ToDo: Identifiable {
-    var id: Int { get }
-    var title: String { get }
-    var completed: Bool { get }
-    var createdAt: Date { get }
-    var updatedAt: Date { get }
-}
-
 protocol ToDoService {
     func list() -> [ToDo]
-    func toggleCompleted(id: Int)
-    func delete(id: Int)
+    func update(title: String, with item: ToDo)
+    func toggleCompleted(item: ToDo)
+    func delete(item: ToDo)
 }
