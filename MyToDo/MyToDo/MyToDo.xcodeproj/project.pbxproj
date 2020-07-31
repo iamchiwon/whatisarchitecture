@@ -22,6 +22,7 @@
 		A1005C0D24CC20E80091740A /* TitleInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0C24CC20E80091740A /* TitleInputViewController.swift */; };
 		A1005C0F24CC761C0091740A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C0E24CC761C0091740A /* ViewModel.swift */; };
 		A1005C1124CC878D0091740A /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1005C1024CC878D0091740A /* UserDefaultsRepository.swift */; };
+		A16C6FB924D415B9002BE50F /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16C6FB824D415B9002BE50F /* NetworkRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		A1005C0C24CC20E80091740A /* TitleInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleInputViewController.swift; sourceTree = "<group>"; };
 		A1005C0E24CC761C0091740A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A1005C1024CC878D0091740A /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
+		A16C6FB824D415B9002BE50F /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				A1005C0624CC05860091740A /* Repository.swift */,
 				A1005C0824CC079E0091740A /* MemoryRepository.swift */,
 				A1005C1024CC878D0091740A /* UserDefaultsRepository.swift */,
+				A16C6FB824D415B9002BE50F /* NetworkRepository.swift */,
 			);
 			path = ToDoService;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				A1005C0524CBF5620091740A /* ToDo.swift in Sources */,
 				A1005C0D24CC20E80091740A /* TitleInputViewController.swift in Sources */,
 				A1005C0924CC079E0091740A /* MemoryRepository.swift in Sources */,
+				A16C6FB924D415B9002BE50F /* NetworkRepository.swift in Sources */,
 				A1005BDF24CBE2FB0091740A /* AppDelegate.swift in Sources */,
 				A1005BE124CBE2FB0091740A /* SceneDelegate.swift in Sources */,
 				A1005C0324CBF17C0091740A /* ToDoService.swift in Sources */,
